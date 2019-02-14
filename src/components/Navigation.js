@@ -15,31 +15,27 @@ import {
 } from "reactstrap";
 
 class Navigation extends Component {
-  constructor() {
-    super();
+  state = {
+    isOpen: false
+  };
 
-    this.toggle = this.toggle.bind(this);
-    this.state = {
-      isOpen: false
-    };
-  }
-  toggle() {
+  toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen
     });
-  }
+  };
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <Container>
-          <Navbar light expand="md">
+          <Navbar light fixed expand="md">
             <NavbarBrand href="/">
               <Media
                 src={hslogo}
                 style={{
-                  height: "35px",
-                  width: "35px",
+                  height: "45px",
+                  width: "45px",
                   borderRadius: "50%",
                   marginRight: "10px"
                 }}
@@ -75,7 +71,7 @@ class Navigation extends Component {
             </Collapse>
           </Navbar>
         </Container>
-      </div>
+      </React.Fragment>
     );
   }
 }

@@ -1,35 +1,59 @@
 import React, { Component } from "react";
-import imgCard from "../img/imageCard.jpeg";
-import hslogo from "../img/hs_logo.png";
+import {
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  CardText,
+  CardSubtitle,
+  Col
+} from "reactstrap";
 
 class ProductCard extends Component {
   render() {
+    const {
+      id,
+      productImage,
+      productName,
+      productPrice,
+      merchantName,
+      index
+    } = this.props;
+
     return (
-      <div>
-        <div
-          className="ui raised link card"
-          style={{ width: "240px", height: "80", margin: "10px 5px" }}
-        >
-          <div className="image">
-            <img alt="productImage" src={imgCard} />
-          </div>
-          <div className="extra content">
-            <div className="header">3D Puzzle</div>
-            <div className="meta" style={{ color: "#5cb85c	" }}>
-              Rp 200.000
-            </div>
-            <div className="right floated author">
-              Desain oleh Hupla Studio
-              {/* <img
-                className="ui avatar image"
-                src={hslogo}
-                alt="avatarImage"
-                style={{ marginLeft: "5px" }}
-              /> */}
-            </div>
-          </div>
-        </div>
-      </div>
+      <React.Fragment>
+        <Col md="6" lg="3">
+          <Card
+            style={{
+              fontSize: 14,
+              marginBottom: 20,
+              border: "transparent"
+            }}
+            key={index}
+          >
+            <a href={"/etalase/" + id}>
+              <CardImg
+                style={{
+                  borderRadius: 0
+                }}
+                src={productImage}
+              />
+            </a>
+
+            <CardBody style={{ padding: "0.5rem" }}>
+              <CardTitle style={{ fontWeight: "bold", marginBottom: "0.2rem" }}>
+                {productName}
+              </CardTitle>
+              <CardText style={{ color: "#28a745", marginBottom: "0.2rem" }}>
+                Rp {productPrice}
+              </CardText>
+              <CardSubtitle className="text-right">
+                Desain oleh {merchantName}
+              </CardSubtitle>
+            </CardBody>
+          </Card>
+        </Col>
+      </React.Fragment>
     );
   }
 }

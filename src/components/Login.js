@@ -71,7 +71,7 @@ class Login extends Component {
                 </Col>
               </FormGroup>
               <FormGroup row>
-                <Label sm={4}>Password </Label>
+                <Label sm={4}>Password</Label>
                 <Col sm={8}>
                   <Input
                     type="password"
